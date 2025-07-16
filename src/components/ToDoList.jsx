@@ -2,7 +2,7 @@ import ToDoItem from './ToDoItem'
 
 const ToDoList = ({ todos, onToggle, onDelete, onEdit }) => {
   return (
-    <div className="space-y-2">
+    <div className="space-y-3">
       {todos.map(todo => (
         <ToDoItem
           key={todo.id}
@@ -17,3 +17,4 @@ const ToDoList = ({ todos, onToggle, onDelete, onEdit }) => {
 }
 
 export default ToDoList
+

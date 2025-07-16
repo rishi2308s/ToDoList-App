@@ -10,32 +10,54 @@ const ToDoItem = ({ todo, onToggle, onDelete, onEdit }) => {
   }
 
   return (
-    <div className="flex justify-between items-center p-3 border rounded bg-gray-50">
-      <div className="flex items-center gap-2 flex-grow">
+    <div className="p-4 rounded-lg border shadow-sm bg-gray-50 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+      <div className="flex items-start gap-3 flex-grow">
         <input
           type="checkbox"
           checked={todo.completed}
           onChange={() => onToggle(todo.id)}
+          className="mt-1 w-5 h-5 accent-blue-600"
         />
-        {isEditing ? (
-          <input
-            value={newText}
-            onChange={(e) => setNewText(e.target.value)}
-            className="border px-2 rounded flex-grow"
-          />
-        ) : (
-          <span className={todo.completed ? "line-through text-gray-400" : ""}>
-            {todo.text}
-          </span>
-        )}
+        <div className="flex flex-col">
+          {isEditing ? (
+            <input
+              value={newText}
+              onChange={(e) => setNewText(e.target.value)}
+              className="border px-2 py-1 rounded text-sm"
+            />
+          ) : (
+            <span className={`text-base ${todo.completed ? 'line-through text-gray-400' : ''}`}>
+              {todo.text}
+            </span>
+          )}
+          <div className="text-xs text-gray-500 mt-1">
+            <p>🕓 Added: {todo.createdAt?.toLocaleString()}</p>
+            {todo.completedAt && <p>✅ Completed: {todo.completedAt.toLocaleString()}</p>}
+          </div>
+        </div>
       </div>
-      <div className="flex gap-2">
+      <div className="flex gap-2 self-end sm:self-auto">
         {isEditing ? (
-          <button onClick={handleEdit} className="text-green-600">Save</button>
+          <button
+            onClick={handleEdit}
+            className="px-3 py-1 bg-green-500 text-white text-sm rounded hover:bg-green-600"
+          >
+            Save
+          </button>
         ) : (
-          <button onClick={() => setIsEditing(true)} className="text-blue-600">Edit</button>
+          <button
+            onClick={() => setIsEditing(true)}
+            className="px-3 py-1 bg-blue-500 text-white text-sm rounded hover:bg-blue-600"
+          >
+            Edit
+          </button>
         )}
-        <button onClick={() => onDelete(todo.id)} className="text-red-600">Delete</button>
+        <button
+          onClick={() => onDelete(todo.id)}
+          className="px-3 py-1 bg-red-500 text-white text-sm rounded hover:bg-red-600"
+        >
+          Delete
+        </button>
       </div>
     </div>
   )
