@@ -1,12 +1,83 @@
-# React + Vite
+# To-Do List Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple, responsive To-Do List built with React and Vite, styled using Tailwind CSS via CDN.  
+Users can add, edit, delete, and mark tasks as completed, with timestamps for task creation and completion.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## Expanding the ESLint configuration
+- Add new tasks  
+- Edit existing tasks  
+- Delete tasks  
+- Mark tasks as completed/uncompleted  
+- View timestamps for when tasks were added and completed  
+- Responsive design for mobile, tablet, and desktop  
+- Clean, professional UI with Tailwind CSS  
+- Uses functional components with React Hooks (state & props)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Tech Stack
+
+- React 18 (functional components)  
+- Vite (build tool & dev server)  
+- Tailwind CSS (via CDN for styling)  
+- JavaScript (ES6+)
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v16 or above recommended)  
+- npm (comes with Node.js)
+
+### Setup Instructions
+
+1. **Clone the repository**
+
+   ```bash
+   git clone <repository-url>
+   cd <repository-folder>
+
+2. **Install Dependencies**
+
+   ```bash
+   npm install
+
+3. **Run Development Server**
+
+   ```bash
+   npm run dev
+
+4. **Open The App**
+
+Open http://localhost:5173 in your browser.
+The app supports hot reloading for a smooth dev experience.
+
+---
+
+## Styling
+
+Tailwind CSS is loaded via CDN in the index.html for ease of setup and fast prototyping, providing utility-first styling without local config
+
+---
+
+## Project Structure
+
+
+   ```bash
+  /public
+  └─ favicon.ico           # Site favicon
+  /src
+  ├─ components
+  │   ├─ Header.jsx        # Task input & add form
+  │   ├─ ToDoItem.jsx      # Individual task item (with edit/delete/toggle)
+  │   └─ ToDoList.jsx      # List container rendering all tasks
+  ├─ App.jsx               # Main app logic and state management
+  └─ main.jsx              # React entry point, renders App
+  index.html               # HTML template with Tailwind CDN
+  package.json             # Project metadata and scripts
+
